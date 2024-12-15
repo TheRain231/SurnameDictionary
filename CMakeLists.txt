@@ -12,6 +12,7 @@ add_executable(SurnameDictionary main.cpp
 # Исходный файл, который нужно скопировать
 set(INPUT_FILE ${CMAKE_SOURCE_DIR}/input.txt)
 
+
 # Папка для сборки
 set(OUTPUT_DIR ${CMAKE_BINARY_DIR})
 
@@ -22,5 +23,5 @@ add_custom_target(CopyInputFile ALL
         COMMENT "Обновление файла input.txt в папке сборки, если он изменился"
 )
 
-# Указываем, что MyProgram зависит от CopyInputFile
+
 add_dependencies(SurnameDictionary CopyInputFile)

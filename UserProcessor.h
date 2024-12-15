@@ -6,25 +6,39 @@
 #define USERPROCESSOR_H
 
 #include <vector>
-#include <string>
 #include <thread>
 #include <mutex>
+#include <unordered_map>
+#include <fstream>
 #include "User.h"
 
 class UserProcessor {
 public:
+    // Конструктор
     UserProcessor(const std::vector<User>& users, int threadCount);
+
+    // Метод для обработки пользователей
     void processUsers();
 
 private:
-    void workerThread(int threadNumber);
+    // Метод, выполняемый каждым потоком
+    void workerThread();
 
+    // Очередь пользователей для обработки
     std::vector<User> users;
-    int threadCount;
+
+    // Мьютекс для синхронизации доступа к очереди пользователей
+    std::mutex mtx;
+
+    // Список потоков
     std::vector<std::thread> threads;
-    std::mutex mtx; // Для защиты users
-    std::mutex fileMutex; // Для защиты файлов
+
+    // Количество потоков
+    int threadCount;
+
+    // Словарь для хранения мьютексов для каждого файла
+    std::unordered_map<std::string, std::mutex> fileMutexes;
 };
 
-
 #endif // USERPROCESSOR_H
+
