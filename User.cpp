@@ -6,15 +6,11 @@
 #include <vector>
 #include <string>
 #include <sstream>
+#include "User.h"
 
-struct User {
-    std::string lastName;
-    std::string firstName;
-    std::string middleName;
-    std::string phoneNumber;
-};
 
-std::vector<User> readUsersFromFile(const std::string& filename) {
+
+std::vector<User> User::readUsersFromFile(const std::string& filename) {
     std::vector<User> users;
     std::ifstream inputFile(filename);
 
@@ -31,9 +27,8 @@ std::vector<User> readUsersFromFile(const std::string& filename) {
         // Парсим строку по разделителю ";"
         if (std::getline(ss, lastName, ';') &&
             std::getline(ss, firstName, ';') &&
-            std::getline(ss, middleName, ';') &&
             std::getline(ss, phoneNumber)) {
-            User user = {lastName, firstName, middleName, phoneNumber};
+            User user = {lastName, firstName, phoneNumber};
             users.push_back(user);
             } else {
                 std::cerr << "Ошибка обработки строки: " << line << std::endl;

@@ -1,9 +1,13 @@
-cmake_minimum_required(VERSION 3.29)
+cmake_minimum_required(VERSION 3.27)
 project(SurnameDictionary)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(SurnameDictionary main.cpp)
+add_executable(SurnameDictionary main.cpp
+        UserProcessor.h
+        UserProcessor.cpp
+        User.h
+        User.cpp)
 
 # Исходный файл, который нужно скопировать
 set(INPUT_FILE ${CMAKE_SOURCE_DIR}/input.txt)

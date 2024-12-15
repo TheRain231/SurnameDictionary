@@ -1,2 +1,11 @@
-Фамилия;Имя;Отчество;Номер
-Фамилия23;Имя;Отчество;Номер
+Black;John;1234567890
+Green;Mike;2345678901
+Ivanov;Petr;3456789012
+Petrov;Alexei;4567890123
+Sidorov;Vladimir;5678901234
+Kozlov;Andrei;6789012345
+Morozov;Olga;7890123456
+Volkov;Elena;8901234567
+Zaitsev;Dmitry;9012345678
+Lebedev;Nikolai;0123456789
+Popov;Alexei;4567890123
