@@ -10,14 +10,14 @@ void processWithThreads(const std::vector<User>& users, int threadCount, const s
 
     auto start = std::chrono::high_resolution_clock::now();
 
-    // Инициализация обработчика с заданным количеством потоков
+    // Инициализация обработчика с нужным количеством потоков
     UserProcessor processor(users, threadCount);
     processor.processUsers();
 
     auto end = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> duration = end - start;
 
-    // Вывод времени без экспоненциальной записи
+    // Вывод времени
     std::cout << "Время обработки "<< filename<<" с " << threadCount << " потоками: "
               << std::fixed << std::setprecision(6) << duration.count() << " секунд.\n" << std::endl;
 }
@@ -28,7 +28,7 @@ int main() {
     for (const auto& filename : filenames) {
         std::vector<User> users = User::readUsersFromFile(filename);
 
-        // Проводим тесты с разным количеством потоков от 1 до 10
+        // Тесты с разным количеством потоков от 1 до 10
         for (int threadCount = 1; threadCount <= 5; ++threadCount) {
             processWithThreads(users, threadCount, filename);
         }

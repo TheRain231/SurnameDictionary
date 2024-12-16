@@ -14,14 +14,12 @@
 
 class UserProcessor {
 public:
-    // Конструктор
     UserProcessor(const std::vector<User>& users, int threadCount);
 
-    // Метод для обработки пользователей
     void processUsers();
 
 private:
-    // Метод, выполняемый каждым потоком
+    // Обработка user
     void workerThread();
 
     // Очередь пользователей для обработки
